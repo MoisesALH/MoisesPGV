@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Dialog?>
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.ButtonBar.ButtonData?>
+
+<?import javafx.scene.control.DialogPane?>
+<Dialog headerText="Ingrese el nombre y la fecha de la tarea" prefWidth="400.0">
+    <dialogPane>
+        <DialogPane>
+            <content>
+                <GridPane hgap="10" vgap="10">
+                    <children>
+                        <Label text="Nombre:" />
+                        <TextField fx:id="nombreField" GridPane.columnIndex="1" />
+                        <Label text="Fecha:" GridPane.rowIndex="1" />
+                        <DatePicker fx:id="fechaPicker" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+            </content>
+            <buttonTypes>
+                <ButtonType text="Agregar" buttonData="OK_DONE" />
+                <ButtonType text="Cancelar" buttonData="CANCEL_CLOSE" />
+            </buttonTypes>
+        </DialogPane>
+    </dialogPane>
+</Dialog>

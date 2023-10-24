@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Dialog?>
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.ListView?>
+
+<?import javafx.scene.control.DialogPane?>
+<Dialog headerText="Tareas con fecha posterior a hoy" prefWidth="400.0">
+    <dialogPane>
+        <DialogPane>
+            <content>
+                <ListView fx:id="historialListView" />
+            </content>
+            <buttonTypes>
+                <ButtonType text="Cerrar" buttonData="CANCEL_CLOSE" />
+            </buttonTypes>
+        </DialogPane>
+    </dialogPane>
+</Dialog>
