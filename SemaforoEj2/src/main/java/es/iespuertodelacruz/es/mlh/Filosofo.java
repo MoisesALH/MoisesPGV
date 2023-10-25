@@ -19,6 +19,8 @@ public class Filosofo extends  Thread{
         try {
             palilloIzquierdo.acquire();
             palilloDerecho.acquire();
+
+            System.out.println(this.nombre + " coge los palillos: ");
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
