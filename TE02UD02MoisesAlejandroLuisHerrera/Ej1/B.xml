@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<?xml-model href="B.dtd" type="application/xml-dtd"?>
+<Productos>
+    <Items>
+        <Cantidad>2</Cantidad>
+        <Descripcion>Hamburguesas</Descripcion>
+        <Precio>€2.25</Precio>
+        <Total>€$4.5</Total>
+    </Items>
+    <Items>
+        <Volumen>2 Litros</Volumen>
+        <Descripcion>Coca Cola</Descripcion>
+        <Precio>€1.25</Precio>
+        <Total>€1.5</Total>
+    </Items>
+    <Impuesto>€0.25</Impuesto>
+    <Entrega>A domicilio</Entrega>
+    <Total>€6.25</Total>
+</Productos>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-model href="A.dtd" type="application/xml-dtd"?>
+<libreta-direcciones>
+    <entrada>
+        <nombre>John Doe</nombre>
+        <direccion>
+            <calle>34 Fountain Square Plaza</calle>
+            <region>OH</region>
+            <codigo-postal>45202</codigo-postal>
+            <localidad>Cincinnati</localidad>
+            <pais>US</pais>
+        </direccion>
+        <telefono>513-555-8889</telefono>
+        <correo-e href="mailto:jdoe@emailaholic.com" />
+    </entrada>
+</libreta-direcciones>

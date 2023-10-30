@@ -1,0 +1,15 @@
+<!ELEMENT libreta-direcciones (entrada+)>
+<!ELEMENT entrada (nombre, direccion, telefono, correo-e)>
+
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT direccion (calle, region, codigo-postal, localidad, pais)>
+    <!ELEMENT calle (#PCDATA)>
+    <!ELEMENT region (#PCDATA)>
+    <!ELEMENT codigo-postal (#PCDATA)>
+    <!ELEMENT localidad (#PCDATA)>
+    <!ELEMENT pais (#PCDATA)>
+    
+<!ELEMENT telefono (#PCDATA)>
+
+<!ELEMENT correo-e EMPTY>
+    <!ATTLIST correo-e href CDATA #REQUIRED>

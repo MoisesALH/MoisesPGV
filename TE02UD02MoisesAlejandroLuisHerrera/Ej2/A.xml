@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="A.dtd" type="application/xml-dtd"?>
+<departamentos>
+    <departamento>
+        <nomdept>Recursos Humanos</nomdept>
+        <responsable>
+            <nombre>John</nombre>
+            <apellidos>Doe</apellidos>
+            <email>john.doe@example.com</email>
+            <extension>1234</extension>
+        </responsable>
+        <personas>
+            <persona>
+                <nombre>Jane</nombre>
+                <apellidos>Smith</apellidos>
+                <email>jane.smith@example.com</email>
+                <extension>5678</extension>
+            </persona>
+        </personas>
+    </departamento>
+</departamentos>

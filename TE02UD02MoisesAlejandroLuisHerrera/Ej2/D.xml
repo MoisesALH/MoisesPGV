@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="D.dtd" type="application/xml-dtd"?>
+<Libro xmlns="http://example.com/libro">
+    <Titulo>Aprende XML y Java</Titulo>
+    <Contenido>
+        <Capitulo materia="XML">
+            <Tema>Introducción a XML</Tema>
+            <Seccion apartados="3">Estructura básica de XML</Seccion>
+            <Seccion apartados="2" dificil="si">DTD y XML Schema</Seccion>
+        </Capitulo>
+        <Separacion/>
+        <Capitulo materia="Java">
+            <Tema>Introducción a Java</Tema>
+            <Seccion apartados="4">Sintaxis básica</Seccion>
+        </Capitulo>
+    </Contenido>
+    <Copyright>2023, Editorial ABC</Copyright>
+</Libro>

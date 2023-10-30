@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="B.dtd" type="application/xml-dtd"?>
+<catalogo>
+    <producto codigo="P001">
+        <nombre>Café</nombre>
+        <descripcion>Café molido de origen colombiano</descripcion>
+        <origen>Colombia</origen>
+    </producto>
+    <producto codigo="P002">
+        <nombre>Té</nombre>
+        <pais>India</pais>
+    </producto>
+</catalogo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="C.dtd" type="application/xml-dtd"?>
+<Pedido xmlns="http://example.com/pedidos" fecha="2023-10-30">
+    <Destino>
+        <Nombre>Jane Smith</Nombre>
+        <Direccion>Calle Principal 123</Direccion>
+        <Ciudad>Madrid</Ciudad>
+        <CodPostal>28000</CodPostal>
+    </Destino>
+    <Ordenante>
+        <Nombre>John Doe</Nombre>
+        <Direccion>Calle Secundaria 456</Direccion>
+        <Ciudad>Barcelona</Ciudad>
+        <CodPostal>08000</CodPostal>
+    </Ordenante>
+    <Observaciones>Entregar antes de las 5pm</Observaciones>
+    <Contenido>
+        <Producto codigo="P001">
+            <Nombre>Café</Nombre>
+            <Cantidad>2</Cantidad>
+            <Precio>5.00</Precio>
+        </Producto>
+    </Contenido>
+</Pedido>
