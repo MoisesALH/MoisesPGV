@@ -9,8 +9,8 @@ public class Game {
 
     private boolean gameOver = false;
 
-    public Game(int size) {
-        this.board = new Board(size);
+    public Game(int size, int cuantity) {
+        this.board = new Board(size, cuantity);
     }
 
     public boolean isGameOver() {

@@ -18,11 +18,18 @@ public class AI extends Thread {
         }
         Random random = new Random();
         while (!game.isGameOver()) {
-            int row = random.nextInt(Board.SIZE);
-            int col = random.nextInt(Board.SIZE);
-            if (!game.getBoard().isMarked(row, col)) {
-                game.markCell(row, col);
+            try {
+                game.getTurno().acquire();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
+            int row = random.nextInt(game.getBoard().getSIZE());
+            int col = random.nextInt(game.getBoard().getSIZE());
+            while(game.getBoard().isMarked(row, col)){
+                row = random.nextInt(game.getBoard().getSIZE());
+                col = random.nextInt(game.getBoard().getSIZE());
+            }
+            game.markCell(row, col);
         }
     }
 }

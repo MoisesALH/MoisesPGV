@@ -13,6 +13,11 @@ public class User extends Thread{
     public void run() {
         Scanner scanner = new Scanner(System.in);
         while (!game.isGameOver()) {
+            try {
+                game.getTurno().acquire();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             System.out.print("Introduce una letra y un número (ejemplo: A2): ");
             String input = scanner.nextLine();
             if (input.length() != 2) {

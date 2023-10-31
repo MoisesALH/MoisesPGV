@@ -4,14 +4,17 @@ import java.util.Random;
 
 public class Board {
     private final int SIZE;
+    private final int TARGET_CUANTITY;
     private char[][] board;
     private boolean[][] marked;
-    private int targetRow, targetCol;
+    private boolean[][] target;
 
-    public Board(int size) {
+    public Board(int size, int targetCunatity) {
         this.SIZE = size;
         this.board = new char[SIZE][SIZE];
         this.marked = new boolean[SIZE][SIZE];
+        this.target = new boolean[SIZE][SIZE];
+        this.TARGET_CUANTITY = targetCunatity;
         initialize();
     }
 
@@ -22,8 +25,16 @@ public class Board {
                 marked[i][j] = false;
             }
         }
-        targetRow = (new Random()).nextInt(SIZE);
-        targetCol = (new Random()).nextInt(SIZE);
+
+        for (int i = 0; i < TARGET_CUANTITY; i++){
+            int x = (int)(Math.random() * SIZE);
+            int y = (int)(Math.random() * SIZE);
+            while (target[x][y]){
+                x = (int)(Math.random() * SIZE);
+                y = (int)(Math.random() * SIZE);
+            }
+            target[x][y] = true;
+        }
     }
 
     public boolean isMarked(int row, int col) {
@@ -35,7 +46,7 @@ public class Board {
     }
 
     public boolean isTarget(int row, int col) {
-        return row == targetRow && col == targetCol;
+        return target[row][row];
     }
 
     public int getSIZE() {
@@ -58,19 +69,11 @@ public class Board {
         this.marked = marked;
     }
 
-    public int getTargetRow() {
-        return targetRow;
+    public boolean[][] getTarget() {
+        return target;
     }
 
-    public void setTargetRow(int targetRow) {
-        this.targetRow = targetRow;
-    }
-
-    public int getTargetCol() {
-        return targetCol;
-    }
-
-    public void setTargetCol(int targetCol) {
-        this.targetCol = targetCol;
+    public void setTarget(boolean[][] target) {
+        this.target = target;
     }
 }
