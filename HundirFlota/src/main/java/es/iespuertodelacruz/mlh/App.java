@@ -1,5 +1,9 @@
 package es.iespuertodelacruz.mlh;
 
+import es.iespuertodelacruz.mlh.model.AI;
+import es.iespuertodelacruz.mlh.model.Game;
+import es.iespuertodelacruz.mlh.model.User;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -8,98 +12,30 @@ public class App {
         Scanner sc = new Scanner(System.in);
         int size;
         int barcos;
-    }
-    /*
-    private static final int BOARD_SIZE = 5;
-    private static char[][] board;
-    private static boolean[][] marked;
-    private static int targetRow, targetCol;
-    private static boolean gameOver = false;
 
-    public static void main(String[] args) {
-        board = new char[BOARD_SIZE][BOARD_SIZE];
-        marked = new boolean[BOARD_SIZE][BOARD_SIZE];
-        initializeBoard();
+        System.out.println("Introduce el tamaño del tablero");
+        size = sc.nextInt();sc.nextLine();
 
-        Thread userThread = new Thread(() -> {
-            Scanner scanner = new Scanner(System.in);
-            while (!gameOver) {
-                System.out.print("Introduce una letra y un número (ejemplo: A2): ");
-                String input = scanner.nextLine();
-                if (input.length() != 2) {
-                    System.out.println("Entrada inválida. Debe ser una letra y un número.");
-                    continue;
-                }
-                char letter = input.charAt(0);
-                int number = Character.getNumericValue(input.charAt(1));
-                if (letter >= 'A' && letter < 'A' + BOARD_SIZE && number >= 1 && number <= BOARD_SIZE) {
-                    checkGuess(letter - 'A', number - 1);
-                } else {
-                    System.out.println("Entrada inválida. Letra entre A y E, número entre 1 y 5.");
-                }
-            }
-        });
-
-        Thread gameThread = new Thread(() -> {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            Random random = new Random();
-            while (!gameOver) {
-                int row = random.nextInt(BOARD_SIZE);
-                int col = random.nextInt(BOARD_SIZE);
-                if (!marked[row][col]) {
-                    markCell(row, col);
-                }
-            }
-        });
-
-        userThread.start();
-        gameThread.start();
-
-        try {
-            userThread.join();
-            gameThread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        while(size > 25){
+            System.out.println("El tamaño es demasiado grande, introduce otro tamaño mas pequeño");
+            size = sc.nextInt();sc.nextLine();
         }
-        System.out.println("Fin del juego.");
-    }
+        System.out.println("Ahora introduce el numero de barcos");
+        barcos = sc.nextInt();sc.nextLine();
 
-    private static void initializeBoard() {
-        for (int i = 0; i < BOARD_SIZE; i++) {
-            for (int j = 0; j < BOARD_SIZE; j++) {
-                board[i][j] = '~'; // Agua
-                marked[i][j] = false;
-            }
+        while (barcos > size){
+            System.out.println("Por motivos de jugabilidad, es mejor que eligas un numero de barcos menor que el tamaño del tablero");
+            barcos = sc.nextInt();sc.nextLine();
         }
-        targetRow = (new Random()).nextInt(BOARD_SIZE);
-        targetCol = (new Random()).nextInt(BOARD_SIZE);
-    }
 
-    private static void checkGuess(int row, int col) {
-        if (row == targetRow && col == targetCol) {
-            System.out.println("¡Tocado y hundido! Has ganado.");
-            gameOver = true;
-        } else if (marked[row][col]) {
-            System.out.println("Ya habías seleccionado esta posición. Prueba de nuevo.");
-        } else {
-            System.out.println("Agua. Inténtalo de nuevo.");
-            marked[row][col] = true;
-        }
-    }
 
-    private static void markCell(int row, int col) {
-        if (row == targetRow && col == targetCol) {
-            System.out.println("¡El enemigo te ha tocado!");
-            gameOver = true;
-        } else {
-            System.out.println("El enemigo ha disparado a la posición " + (char) ('A' + row) + (col + 1) + " - Agua.");
-            marked[row][col] = true;
-        }
-    }
+        Game game = new Game(size,barcos);
+        Thread user = new User(game);   //user y AI comparten el juego, ya que jugarán al contre ellos mismos y así compartirán el semaforo Turno, el cual solo permite 1.
+        Thread ai = new AI(game);
 
-     */
+        game.getBoard().mostrarTablero();
+
+        user.start();
+        ai.start();
+    }
 }

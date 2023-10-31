@@ -9,6 +9,9 @@ public class AI extends Thread {
         this.game = game;
     }
 
+    /**
+     * La maquina pide el turno. Cuando pueda, hara su jugada y liberará el semaforo.
+     */
     @Override
     public void run() {
         try {
@@ -23,13 +26,16 @@ public class AI extends Thread {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            int row = random.nextInt(game.getBoard().getSIZE());
-            int col = random.nextInt(game.getBoard().getSIZE());
-            while(game.getBoard().isMarked(row, col)){
-                row = random.nextInt(game.getBoard().getSIZE());
-                col = random.nextInt(game.getBoard().getSIZE());
+            if (!game.isGameOver()) {
+                int row = random.nextInt(game.getBoard().getSIZE());
+                int col = random.nextInt(game.getBoard().getSIZE());
+                while (game.getBoard().isMarked(row, col)) {
+                    row = random.nextInt(game.getBoard().getSIZE());
+                    col = random.nextInt(game.getBoard().getSIZE());
+                }
+                game.markCell(row, col);
+                game.getTurno().release();
             }
-            game.markCell(row, col);
         }
     }
 }
