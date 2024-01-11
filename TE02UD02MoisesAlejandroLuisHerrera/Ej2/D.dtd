@@ -1,18 +1,11 @@
-<!ELEMENT Libro (Titulo, Contenido, Copyright)>
-<!ATTLIST Libro
-xmlns CDATA #REQUIRED
->
+<!ELEMENT Libro (Titulo,Contenido,Copyright)>
 <!ELEMENT Titulo (#PCDATA)>
-<!ELEMENT Contenido ((Capitulo+, Separacion?)+)>
-<!ELEMENT Capitulo (Tema, Seccion+)>
-<!ATTLIST Capitulo
-materia (XML|Java) "Java"
->
+<!ELEMENT Contenido (Capitulo+,Separacion)>
+<!ELEMENT Capitulo (Tema,Seccion+)>
+<!ATTLIST Capitulo materia NMTOKEN #REQUIRED>
 <!ELEMENT Tema (#PCDATA)>
 <!ELEMENT Seccion (#PCDATA)>
-<!ATTLIST Seccion
-apartados CDATA #REQUIRED
-dificil (si|no) "no"
->
+<!ATTLIST Seccion apartados NMTOKEN #REQUIRED>
+<!ATTLIST Seccion dificil NMTOKEN #IMPLIED>
 <!ELEMENT Separacion EMPTY>
 <!ELEMENT Copyright (#PCDATA)>
