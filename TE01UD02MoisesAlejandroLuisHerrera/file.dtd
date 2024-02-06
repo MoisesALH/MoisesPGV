@@ -1,0 +1,5 @@
+<!ELEMENT vehiculos (terrestres,acuaticos,aereos)>
+<!ELEMENT terrestres (vehiculo+)>
+<!ELEMENT vehiculo (#PCDATA)>
+<!ELEMENT acuaticos (vehiculo)>
+<!ELEMENT aereos (vehiculo+)>
